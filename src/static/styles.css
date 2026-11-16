@@ -59,19 +59,126 @@ section h3 {
 
 .activity-card {
   margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  padding: 18px 16px;
+  border: 1px solid #dfe7ff;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7ff 100%);
+  box-shadow: 0 8px 18px rgba(26, 35, 126, 0.08);
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
-  color: #0066cc;
+  color: #1a237e;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .activity-card p {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.activity-description {
+  color: #4b4f5b;
+  font-size: 0.98rem;
+}
+
+.participants-section {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e3e8f5;
+}
+
+.participants-section h5 {
   margin-bottom: 8px;
+  color: #1a237e;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.participants-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  color: #2d3748;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  background-color: #eef3ff;
+  margin-bottom: 6px;
+  animation: participantPulse 0.35s ease;
+}
+
+.participant-item.empty {
+  background: transparent;
+  justify-content: flex-start;
+  color: #6b7280;
+  padding-left: 0;
+}
+
+@keyframes participantPulse {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.7;
+  }
+  60% {
+    transform: scale(1.01);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.participant-name {
+  overflow-wrap: anywhere;
+}
+
+.remove-participant {
+  appearance: none;
+  border: none;
+  background: #dbeafe;
+  color: #1d4ed8;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.remove-participant:hover {
+  background: #bfdbfe;
+  transform: scale(1.04);
 }
 
 .form-group {
@@ -118,18 +225,31 @@ button:hover {
   background-color: #e8f5e9;
   color: #2e7d32;
   border: 1px solid #a5d6a7;
+  animation: statusFlash 0.35s ease;
 }
 
 .error {
   background-color: #ffebee;
   color: #c62828;
   border: 1px solid #ef9a9a;
+  animation: statusFlash 0.35s ease;
 }
 
 .info {
   background-color: #d1ecf1;
   color: #0c5460;
   border: 1px solid #bee5eb;
+}
+
+@keyframes statusFlash {
+  0% {
+    opacity: 0.5;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hidden {
